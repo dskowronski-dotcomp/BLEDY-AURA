@@ -1,0 +1,60 @@
+1. Ładowanie produktów od największego id
+
+2. Podkreślniki w title 
+
+	Możliwe rozwiązanie problemu: 
+	Twig
+		{{title|replace({'_':' '})}}
+	PHP
+		$title = str_replace('_', ' ', $title); https://www.php.net/manual/en/function.str-replace.php
+		
+3. Tworzenie nowego zamówienia z listy zamówień 
+	- formy płatności, duża ilość niepotrzebnych form płatności (forma płatności nie powinna być możliwa do zmiany przez klienta, powinna zostać pobrana z profilu kontrahenta)
+	- Po złożeniu zamówienia nie można pobrać wydruku xlsx - console log:
+	
+	E_COMPILE_ERROR: require_once(): Failed opening required '../lib/PHPExcel/PHPExcel.php' (include_path='/var/www/app/lib/symfony/plugins/sfPropelPlugin/lib/vendor:/var/www/app:/var/www/app/lib/symfony:.:/usr/local/lib/php') in /var/www/app/cache/localhost/template_104.php on line 39
+	(anonymous) @ custom_xlsx_order.html?order_id=6817:171
+	
+4. Zapytanie ofertowe:
+	- generowanie wydruku xlsx, wartości netto i brutto nie uwzględniają rabatu
+5. Tworzenie koszyka 
+	- edycja koszyka -> zapisz i stwórz nowy -> Dodaj nazwę i zapisz -> Błąd 404
+	
+6. Panel główny klienta 
+	- sortowanie zamówień od najstarszych, logicznie rzecz biorąc powinny interesować nas najnowsze zamówienia a nie sprzed kilku lat
+	- wyślij e-mail - generuje maila na adres mail@mail.com a powinien wygenerować maila do opiekuna
+	
+7. Na liście produktów dodanie produktu spoza oferty:
+	- Brak możliwości dodania ceny, zbędne pola typu certyfikat itp. Po dodaniu do koszyka i stworzenia Zapytania ofertowego produkt ten nie pojawia się na dokumencie (tworzy się nowy dokument) ZO/21/11/0003/TMP
+	
+8. Brak możliwości filtrowania po produktach "tylko dostępne". Atrybut jest dostępny tylko w galerii produktów
+
+9. Możliwość filtrowania po producentach, których nie ma na liście wyszukiwania. Jeżeli klient nie zna oferty produktowej danego producenta to może błądzić po filtrach po omacku
+
+10. Paginacja w galerii produktu nadal jest nie na swoim miejscu, chociaż incydent był zgłaszany i rozwiąny kilkukrotnie
+
+11. Tworzenie nowego dokumentu ofertowego z istniejącego dokumentu
+	- po dodaniu produktu spoza oferty i zmianie kontrahenta nie można nadać ceny netto
+	- po zmianie kontrahenta cena katalogowa produktów spoza oferty zeruje się
+
+
+DTS 
+
+	1. Długie ładowanie produktów
+	2. Długie doładowywanie produktów podczas poruszania się po drzewku
+	3. Pobieranie karty katalogowej pod przyciskiem po zalogowaniu a pod nazwą bez logowania
+	4. Błąd tworzenia nowego koszyka
+	
+	
+	
+Propozycje rozwojowe
+
+		- Oferta dla end-usera
+		- PWA/Aplikacja na androida
+		- Wygląd / CSS
+		
+
+
+
+
+	
